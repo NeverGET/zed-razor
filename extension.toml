@@ -5,14 +5,15 @@ schema_version = 1
 description = "Razor / .cshtml language support: syntax highlighting + rzls language server."
 repository = "https://github.com/user/zed-razor"
 authors = ["user"]
+languages = ["languages/razor"]
 
 [lib]
 kind = "Rust"
 version = "0.7.0"
 
 [grammars.razor]
-repository = "https://github.com/user/tree-sitter-razor"
-path = "../../tree-sitter-razor"
+repository = "file:///C:/Users/umta00105/projects/tree-sitter-razor"
+rev = "faff439aba9ab957e8fe644d8124e9f2fe35914a"
 
 [language_servers.rzls]
 language = "Razor"

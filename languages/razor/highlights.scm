@@ -7,10 +7,7 @@
 ; ============================================================
 
 ; ---- Razor Comments  @* ... *@ ----------------------------
-(razor_comment
-  (comment_start) @comment
-  (comment_content) @comment
-  (comment_end) @comment) @comment
+(razor_comment) @comment
 
 ; ---- Escaped @ --------------------------------------------
 (razor_escaped_at) @string.escape
@@ -19,6 +16,9 @@
 (razor_code_block "@" @keyword.operator)
 (razor_implicit_expression "@" @keyword.operator)
 (razor_explicit_expression "@(" @keyword.operator)
+(razor_control_flow "@" @keyword.operator)
+(razor_section_directive "@" @keyword.operator)
+(razor_directive "@" @keyword.operator)
 
 ; ---- Directive keywords -----------------------------------
 (razor_directive (directive_name) @keyword)
@@ -29,25 +29,29 @@
 
 ; ---- Control flow keywords --------------------------------
 (razor_control_flow (control_keyword) @keyword.control)
-(razor_else_clause  (control_keyword) @keyword.control)
+(razor_control_flow (control_condition) @embedded)
+(razor_else_clause (control_keyword) @keyword.control)
+(razor_else_clause (control_condition) @embedded)
 
-; ---- Braces -----------------------------------------------
-; Code block
+; ---- Code blocks ------------------------------------------
 (razor_code_block "{" @punctuation.bracket)
 (razor_code_block "}" @punctuation.bracket)
+(razor_section_directive "{" @punctuation.bracket)
+(razor_section_directive "}" @punctuation.bracket)
+(razor_control_flow "{" @punctuation.bracket)
+(razor_control_flow "}" @punctuation.bracket)
+(razor_else_clause "{" @punctuation.bracket)
+(razor_else_clause "}" @punctuation.bracket)
 
-; Explicit expression parens
-(razor_explicit_expression ")" @punctuation.special)
+; ---- Explicit expression parens ---------------------------
+(razor_explicit_expression ")" @punctuation.bracket)
+
+; ---- C# code and expressions ------------------------------
+(csharp_code) @embedded
+(csharp_expression) @embedded
 
 ; ---- Identifiers in implicit expressions ------------------
-(implicit_expression_body
-  (identifier) @variable.member)
-
-; Member access dot
-(implicit_expression_body "." @operator)
-
-; Null-conditional ?. operator
-(implicit_expression_body "?" @operator)
-
-; Null-forgiving !
-(implicit_expression_body "!" @operator)
+(identifier) @variable
+(index_argument) @variable
+(directive_value) @type
+(section_name) @function

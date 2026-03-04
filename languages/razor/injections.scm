@@ -14,6 +14,11 @@
 ((csharp_expression) @injection.content
   (#set! injection.language "c_sharp"))
 
+; Inject HTML into text chunks (raw HTML/text between Razor constructs)
+((text_chunk) @injection.content
+  (#set! injection.language "html")
+  (#set! injection.combined))
+
 ; Inject C# into directive values for type-bearing directives
 ; e.g. @model MyApp.Models.Foo  ->  highlight "MyApp.Models.Foo" as C#
 ((razor_directive
@@ -21,8 +26,3 @@
   (directive_value) @injection.content)
   (#match? @_dname "^(model|inject|inherits|implements|typeparam)$")
   (#set! injection.language "c_sharp"))
-
-; Inject HTML into raw text/markup chunks
-((_text_chunk) @injection.content
-  (#set! injection.language "html")
-  (#set! injection.include-children))
