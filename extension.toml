@@ -1,0 +1,18 @@
+id = "razor"
+name = "Razor (ASP.NET)"
+version = "0.1.0"
+schema_version = 1
+description = "Razor / .cshtml language support: syntax highlighting + rzls language server."
+repository = "https://github.com/user/zed-razor"
+authors = ["user"]
+
+[lib]
+kind = "Rust"
+version = "0.7.0"
+
+[grammars.razor]
+repository = "https://github.com/user/tree-sitter-razor"
+path = "../../tree-sitter-razor"
+
+[language_servers.rzls]
+language = "Razor"

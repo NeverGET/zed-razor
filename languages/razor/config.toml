@@ -1,0 +1,23 @@
+name = "Razor"
+grammar = "razor"
+path_suffixes = ["cshtml", "razor"]
+
+line_comments = ["// "]
+block_comment = ["@* ", " *@"]
+
+tab_size = 4
+hard_tabs = false
+
+brackets = [
+  { start = "{", end = "}", close = true, newline = true },
+  { start = "(", end = ")", close = true, newline = true },
+  { start = "[", end = "]", close = true, newline = true },
+  { start = "\"", end = "\"", close = true, newline = false, not_in = ["string", "comment"] },
+  { start = "'", end = "'", close = true, newline = false, not_in = ["string", "comment"] },
+  { start = "<", end = ">", close = false, newline = false },
+  { start = "@*", end = "*@", close = true, newline = false },
+]
+
+autoclose_before = ";:.,=}])> \n\t"
+
+word_characters = ["@", "_", "-"]
