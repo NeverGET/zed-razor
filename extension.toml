@@ -3,8 +3,8 @@ name = "Razor (ASP.NET)"
 version = "0.1.0"
 schema_version = 1
 description = "Razor / .cshtml language support: syntax highlighting + rzls language server."
-repository = "https://github.com/user/zed-razor"
-authors = ["user"]
+repository = "https://github.com/NeverGET/zed-razor"
+authors = ["NeverGET"]
 languages = ["languages/razor"]
 
 [lib]
@@ -12,7 +12,7 @@ kind = "Rust"
 version = "0.7.0"
 
 [grammars.razor]
-repository = "file:///C:/Users/umta00105/projects/tree-sitter-razor"
+repository = "https://github.com/NeverGET/tree-sitter-razor"
 rev = "79b1470df74a944a738ea323b8805985dfde14ed"
 
 [language_servers.rzls]
