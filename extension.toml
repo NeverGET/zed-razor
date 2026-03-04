@@ -13,7 +13,7 @@ version = "0.7.0"
 
 [grammars.razor]
 repository = "file:///C:/Users/umta00105/projects/tree-sitter-razor"
-rev = "faff439aba9ab957e8fe644d8124e9f2fe35914a"
+rev = "79b1470df74a944a738ea323b8805985dfde14ed"
 
 [language_servers.rzls]
 language = "Razor"

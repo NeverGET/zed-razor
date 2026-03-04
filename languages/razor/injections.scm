@@ -19,6 +19,11 @@
   (#set! injection.language "html")
   (#set! injection.combined))
 
+; Inject HTML into control flow and section bodies (@if, @foreach, @section, etc.)
+((razor_content) @injection.content
+  (#set! injection.language "html")
+  (#set! injection.combined))
+
 ; Inject C# into directive values for type-bearing directives
 ; e.g. @model MyApp.Models.Foo  ->  highlight "MyApp.Models.Foo" as C#
 ((razor_directive

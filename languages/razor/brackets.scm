@@ -8,8 +8,11 @@
 ; Code block braces
 (razor_code_block "{" @open "}" @close)
 
-; Section directive braces
-(razor_section_directive "{" @open "}" @close)
+; Section block braces
+(razor_section_block "{" @open "}" @close)
+
+; Functions/code directive braces
+(razor_functions_directive "{" @open "}" @close)
 
 ; Control flow braces
 (razor_control_flow "{" @open "}" @close)

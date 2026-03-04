@@ -17,15 +17,17 @@
 (razor_implicit_expression "@" @keyword.operator)
 (razor_explicit_expression "@(" @keyword.operator)
 (razor_control_flow "@" @keyword.operator)
-(razor_section_directive "@" @keyword.operator)
+(razor_section_block "@" @keyword.operator)
+(razor_functions_directive "@" @keyword.operator)
 (razor_directive "@" @keyword.operator)
 
 ; ---- Directive keywords -----------------------------------
 (razor_directive (directive_name) @keyword)
 (razor_directive (directive_value) @type)
 
-(razor_section_directive (directive_name) @keyword)
-(razor_section_directive (section_name) @function)
+(razor_section_block (directive_name) @keyword)
+(razor_section_block (section_name) @function)
+(razor_functions_directive (directive_name) @keyword)
 
 ; ---- Control flow keywords --------------------------------
 (razor_control_flow (control_keyword) @keyword.control)
@@ -36,15 +38,17 @@
 ; ---- Code blocks ------------------------------------------
 (razor_code_block "{" @punctuation.bracket)
 (razor_code_block "}" @punctuation.bracket)
-(razor_section_directive "{" @punctuation.bracket)
-(razor_section_directive "}" @punctuation.bracket)
+(razor_section_block "{" @punctuation.bracket)
+(razor_section_block "}" @punctuation.bracket)
+(razor_functions_directive "{" @punctuation.bracket)
+(razor_functions_directive "}" @punctuation.bracket)
 (razor_control_flow "{" @punctuation.bracket)
 (razor_control_flow "}" @punctuation.bracket)
 (razor_else_clause "{" @punctuation.bracket)
 (razor_else_clause "}" @punctuation.bracket)
 
 ; ---- Explicit expression parens ---------------------------
-(razor_explicit_expression ")" @punctuation.bracket)
+(razor_explicit_expression ")" @keyword.operator)
 
 ; ---- C# code and expressions ------------------------------
 (csharp_code) @embedded
