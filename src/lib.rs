@@ -37,7 +37,7 @@ impl RazorExtension {
             RZLS_GITHUB_REPO,
             zed::GithubReleaseOptions {
                 require_assets: true,
-                pre_release: true, // rzls releases are tagged as pre-release
+                pre_release: false, // rzls tags previews but no longer marks them as GitHub prereleases
             },
         )?;
 
